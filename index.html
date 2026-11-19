@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Giuliano, diseñador UX/UI y Product Designer.">
+<title>Giuliano Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: columna editorial a la izquierda, filas de trabajo tipo índice, etiquetas en monoespaciada como en una interfaz de diseño */
+:root {
+  --bg: #EEF0EE;
+  --surface: #E4E7E4;
+  --fg: #12161A;
+  --muted: #55605F;
+  --line: #C9CFCC;
+  --accent: #2438D8;
+  --accent-fg: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1316; --surface: #171C20; --fg: #E8ECEA; --muted: #98A3A1;
+    --line: #272E32; --accent: #7F8DFF; --accent-fg: #0F1316; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1316; --surface: #171C20; --fg: #E8ECEA; --muted: #98A3A1;
+  --line: #272E32; --accent: #7F8DFF; --accent-fg: #0F1316; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+.label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 24px; flex-wrap: wrap; }
+header.top .brand { font-family: var(--font-display); font-weight: 700; font-size: 18px; text-decoration: none; }
+header.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+header.top nav a { font-size: 14px; text-decoration: none; color: var(--muted); }
+header.top nav a:hover { color: var(--fg); }
+
+.hero { padding-block: 64px 72px; display: grid; gap: 28px; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(44px, 9vw, 104px);
+  line-height: 0.98; letter-spacing: -0.03em; margin: 0; text-wrap: balance;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: clamp(18px, 2.4vw, 22px); max-width: 38em; margin: 0; color: var(--fg); }
+.hero .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-block; padding: 12px 20px; background: var(--accent); color: var(--accent-fg);
+  font-weight: 600; font-size: 15px; text-decoration: none; border-radius: 4px;
+}
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.btn:hover { filter: brightness(1.08); }
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px 40px; }
+section > h2 { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+
+.work { list-style: none; margin: 0; padding: 0; }
+.work li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.work li:first-child { padding-top: 0; }
+.work h3 { margin: 0; font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; }
+.work p { grid-column: 1; margin: 0; color: var(--muted); max-width: 40em; }
+.work .meta { grid-column: 2; grid-row: 1; text-align: right; align-self: center; }
+.work .soon { grid-column: 1 / -1; }
+.tag { display: inline-block; font-family: var(--font-mono); font-size: 12px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); margin-top: 4px; }
+
+.jobs { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 24px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.job:first-child { padding-top: 0; }
+.job h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.job p { margin: 4px 0 0; color: var(--muted); }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+.skills h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chips li { background: var(--surface); padding: 5px 11px; border-radius: 3px; font-size: 14px; }
+
+.contact h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: clamp(30px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+.contact p { margin: 0 0 20px; color: var(--muted); max-width: 36em; }
+
+.skip { position: absolute; left: 16px; top: -60px; background: var(--accent); color: var(--accent-fg); padding: 10px 16px; border-radius: 4px; z-index: 20; text-decoration: none; font-weight: 600; }
+.skip:focus { top: 12px; }
+.about p { margin: 0 0 16px; color: var(--muted); max-width: 38em; }
+.about p.big { font-family: var(--font-display); font-size: clamp(26px, 4vw, 40px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; color: var(--fg); text-wrap: balance; }
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  section { grid-template-columns: minmax(0, 1fr); padding-block: 40px; }
+  .job { grid-template-columns: minmax(0, 1fr); }
+  .work li { grid-template-columns: minmax(0, 1fr); }
+  .work .meta { grid-column: 1; grid-row: auto; text-align: left; }
+  .hero { padding-block: 40px 48px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#trabajo">Saltar al contenido</a>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#inicio">Giuliano</a>
+    <nav aria-label="Principal">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#herramientas">Herramientas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <span class="label status">Disponible para nuevos proyectos</span>
+      <h1>Diseño productos <em>y los dejo funcionando</em> en el navegador.</h1>
+      <p class="lead">Soy diseñador UX/UI y Product Designer. Trabajé casi cuatro años en NTT DATA para clientes como Ternium, YPF, Edesur y Toyota, y también escribo el código de lo que diseño: HTML, CSS, JavaScript y React.</p>
+      <div class="row">
+        <a class="btn" href="#contacto">Hablemos</a>
+        <a class="btn ghost" href="#trabajo">Ver trabajo</a>
+      </div>
+    </div>
+
+    <section id="trabajo">
+      <h2>Trabajo seleccionado</h2>
+      <ul class="work">
+        <li>
+          <h3>Ternium</h3>
+          <span class="label meta">NTT DATA · UX/UI</span>
+          <p>Diseño de interfaces y flujos de producto para una de las industrias más grandes de la región.</p>
+          <span class="tag soon">Caso de estudio en preparación</span>
+        </li>
+        <li>
+          <h3>YPF</h3>
+          <span class="label meta">NTT DATA · UX/UI</span>
+          <p>Diseño de experiencia e interfaz para productos digitales de la mayor energética de Argentina.</p>
+          <span class="tag soon">Caso de estudio en preparación</span>
+        </li>
+        <li>
+          <h3>Edesur</h3>
+          <span class="label meta">NTT DATA · UX/UI</span>
+          <p>Diseño de experiencia e interfaz para servicios digitales de una distribuidora eléctrica.</p>
+          <span class="tag soon">Caso de estudio en preparación</span>
+        </li>
+        <li>
+          <h3>Toyota</h3>
+          <span class="label meta">NTT DATA · EVP · UX/UI</span>
+          <p>Diseño UX/UI para Grupo Pana y Toyota, primero en EVP y luego a través de NTT DATA.</p>
+          <span class="tag soon">Caso de estudio en preparación</span>
+        </li>
+        <li>
+          <h3>Mused</h3>
+          <span class="label meta">Desarrollo web · Europa y EE. UU.</span>
+          <p>Lideré la implementación técnica de diseños para clientes de Europa y Estados Unidos, de Figma a sitios en producción.</p>
+          <span class="tag soon">Caso de estudio en preparación</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="sobre-mi" class="about">
+      <h2>Sobre mí</h2>
+      <div>
+        <p class="big">Diseño la interfaz y también sé cómo se construye.</p>
+        <p>Estudié Tecnología Multimedial en la Universidad Maimónides y empecé a trabajar en diseño y desarrollo en 2022. En Mused pasé los diseños de Figma a código para clientes de Europa y Estados Unidos, y en NTT DATA diseñé productos para grandes empresas argentinas.</p>
+        <p>Hoy combino Figma con herramientas de IA como Claude Code, Cursor y Lovable para probar ideas rápido y llegar a prototipos que se pueden usar. Mi inglés es nivel B1 y complemento mi formación con cursos de usabilidad, accesibilidad y UX Writing.</p>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiencia</h2>
+      <div class="jobs">
+        <div class="job">
+          <span class="label">Dic 2022 – Jun 2026</span>
+          <div><h3>Diseñador UX/UI · NTT DATA</h3><p>Diseño de producto para Ternium, YPF, Edesur y Toyota.</p></div>
+        </div>
+        <div class="job">
+          <span class="label">Nov 2022 – Ene 2025</span>
+          <div><h3>Desarrollador web · Mused</h3><p>Implementación técnica de diseños para clientes de Europa y Estados Unidos.</p></div>
+        </div>
+        <div class="job">
+          <span class="label">Oct 2022 – Ene 2023</span>
+          <div><h3>Diseñador UX/UI · EVP S.A.C.</h3><p>Diseño para Grupo Pana – Toyota.</p></div>
+        </div>
+        <div class="job">
+          <span class="label">2019 – 2024</span>
+          <div><h3>Licenciatura en Tecnología Multimedial</h3><p>Universidad Maimónides.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="herramientas">
+      <h2>Herramientas</h2>
+      <div class="skills">
+        <div>
+          <h3>Diseño</h3>
+          <ul class="chips"><li>Figma</li><li>Diseño UI</li><li>UX Writing</li><li>Pruebas de usabilidad</li><li>Accesibilidad</li></ul>
+        </div>
+        <div>
+          <h3>Código</h3>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Tailwind</li><li>Bootstrap</li><li>MUI</li><li>Webflow</li></ul>
+        </div>
+        <div>
+          <h3>Con IA</h3>
+          <ul class="chips"><li>Claude Code</li><li>Cursor</li><li>Lovable</li><li>Figma Make</li><li>Gemini</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2>Contacto</h2>
+      <div>
+        <h3>Si buscás a alguien que diseñe y construya, escribime.</h3>
+        <p>Busco un puesto como UX/UI Designer o Product Designer. También tomo proyectos de diseño y desarrollo web freelance.</p>
+        <a class="btn" href="https://www.linkedin.com/" rel="noopener">Escribirme en LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="label">Giuliano · Buenos Aires</span>
+    <span class="label">Portfolio 2026</span>
+  </footer>
+</div>
+
+</body>
+</html>
