@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="YPF Ruta: caso de estudio de diseño conversacional de un chatbot de WhatsApp para conductores. Por Giuliano Giovanola.">
+<title>YPF Ruta · Caso de estudio · Giuliano Giovanola</title>
+<script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="site-header" id="top">
+  <div class="wrap topbar">
+    <a class="id" href="../index.html#inicio">Giuliano Giovanola<span class="idrole"> | UX/UI &amp; Product Designer</span></a>
+    <div class="links">
+      <div class="controls">
+        <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.group">
+          <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="theme-btn" aria-pressed="false" aria-label="Modo oscuro" data-i18n-aria="theme.dark">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+      <a class="pill" href="../assets/documents/cv-giuliano-giovanola.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        <span class="pill-full" data-i18n="cv.nav">Descargar CV</span><span class="pill-short">CV</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido" class="wrap case">
+  <header class="case-hero">
+    <a class="case-back" href="../index.html#casos"><span aria-hidden="true">←</span> <span data-i18n="case.back">Todos los proyectos</span></a>
+    <p class="eyebrow" data-i18n="y.eyebrow">Caso 02 · Diseño conversacional · WhatsApp</p>
+    <h1>YPF Ruta</h1>
+    <p class="case-lead" data-i18n="y.lead">Asistente de WhatsApp para que los conductores registren sus viajes y validen vehículo, documentación y riesgo antes de salir a la ruta.</p>
+    <dl class="case-facts">
+      <div><dt data-i18n="y.f.role.k">Rol</dt><dd data-i18n="y.f.role">UX Designer, diseño conversacional</dd></div>
+      <div><dt data-i18n="y.f.client.k">Cliente</dt><dd>YPF</dd></div>
+      <div><dt data-i18n="y.f.period.k">Período</dt><dd data-i18n="y.f.period">Diciembre 2025 – Enero 2026</dd></div>
+      <div><dt data-i18n="y.f.product.k">Producto</dt><dd data-i18n="y.f.product">Chatbot de WhatsApp</dd></div>
+      <div><dt data-i18n="y.f.team.k">Equipo</dt><dd data-i18n="y.f.team">PM, desarrolladores y QA</dd></div>
+    </dl>
+  </header>
+
+  <figure class="case-cover">
+    <img src="../assets/images/ypf-cover-light-1840x1000.png" data-src-dark="../assets/images/ypf-cover-dark-1840x1000.png" width="1840" height="1000" alt="Tres pantallas de la conversación de YPF Ruta en WhatsApp: identificación del conductor, carga del origen del viaje y resumen de la evaluación de riesgo" data-i18n-alt="y.cover.alt">
+  </figure>
+
+  <section class="case-sec" aria-labelledby="y-s1">
+    <p class="kicker" data-i18n="y.s1.k">01 / Introducción</p>
+    <div class="case-body">
+      <h2 id="y-s1" data-i18n="y.s1.t">Un asistente que acompaña cada viaje</h2>
+      <p data-i18n="y.s1.p">YPF Ruta es un chatbot de WhatsApp que acompaña a los conductores antes de cada viaje. Los identifica, registra el viaje, valida el vehículo, el supervisor y la documentación, y evalúa el riesgo del trayecto para definir si hace falta una aprobación.</p>
+      <h3 class="case-sub" data-i18n="y.role.t">Mi rol</h3>
+      <p data-i18n="y.role.p">Participé del discovery con el PM y el cliente. A partir de esas conversaciones y de los requerimientos del cliente, diseñé el flujo general del asistente y sumé las partes que el proceso necesitaba para funcionar completo. Escribí las conversaciones del bot, tanto el camino ideal como los caminos alternativos. Trabajé con el PM, los desarrolladores y QA, y acompañé las pruebas con conductores y los ajustes posteriores.</p>
+    </div>
+  </section>
+
+  <section class="case-sec" aria-labelledby="y-s2">
+    <p class="kicker" data-i18n="y.s2.k">02 / El desafío</p>
+    <div class="case-body">
+      <h2 id="y-s2" data-i18n="y.s2.t">Muchas validaciones en un solo chat</h2>
+      <p data-i18n="y.s2.p1">Los conductores estaban registrados en una planilla y los viajes se informaban por llamada. El nuevo proceso tenía que resolver cinco validaciones antes de cada viaje:</p>
+      <ul class="case-wins case-wins-short">
+        <li data-i18n="y.s2.l1">Quién maneja</li>
+        <li data-i18n="y.s2.l2">Qué vehículo usa</li>
+        <li data-i18n="y.s2.l3">Quién es su supervisor</li>
+        <li data-i18n="y.s2.l4">Si tiene la documentación en regla</li>
+        <li data-i18n="y.s2.l5">Qué tan riesgoso es el viaje</li>
+      </ul>
+      <div class="case-reframe">
+        <div class="reframe-col">
+          <p class="reframe-k" data-i18n="case.ask">Lo que se pidió</p>
+          <p data-i18n="y.rf.ask">Pasar a WhatsApp el registro de viajes que se hacía por llamada.</p>
+        </div>
+        <span class="reframe-arrow" aria-hidden="true">→</span>
+        <div class="reframe-col reframe-real">
+          <p class="reframe-k" data-i18n="case.real">El problema real</p>
+          <p data-i18n="y.rf.real">Que todo eso entrara en una conversación de WhatsApp sin volverse confusa. El conductor tenía que poder completarla antes de salir, aunque se equivocara al escribir un dato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec" aria-labelledby="y-s3">
+    <p class="kicker" data-i18n="y.s3.k">03 / Mi enfoque</p>
+    <div class="case-body">
+      <h2 id="y-s3" data-i18n="y.s3.t">Una conversación que no deja a nadie trabado</h2>
+      <div class="case-cards">
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c1.t">Confirmar antes de guardar</h3>
+          <p data-i18n="y.s3.c1.p">Cada dato que ingresa el conductor vuelve en un mensaje para que lo confirme.</p>
+        </article>
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c2.t">Mostrar lo que ya existe en lugar de pedirlo de nuevo</h3>
+          <p data-i18n="y.s3.c2.p">El bot busca al conductor, al vehículo y al supervisor en las bases de datos y muestra la información para validarla. Solo pide los datos que faltan.</p>
+        </article>
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c3.t">Siempre una salida para corregir</h3>
+          <p data-i18n="y.s3.c3.p">Si algo no coincide, el conductor elige entre actualizar un dato puntual o empezar ese paso de nuevo, sin perder lo que ya cargó.</p>
+        </article>
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c4.t">El tipo de respuesta según la pregunta</h3>
+          <p data-i18n="y.s3.c4.p">Para decisiones cerradas, como sí o no, el bot usa botones. Para listas largas, como los datos a corregir o las preguntas de riesgo, usa opciones numeradas. Y el texto libre queda solo para datos abiertos, como ciudades y fechas.</p>
+        </article>
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c5.t">Anticipar los errores</h3>
+          <p data-i18n="y.s3.c5.p">El bot tiene respuesta para:</p>
+          <ul class="case-mini">
+            <li data-i18n="y.s3.c5.l1">Números con dígitos de menos</li>
+            <li data-i18n="y.s3.c5.l2">Ciudades que no existen en la base</li>
+            <li data-i18n="y.s3.c5.l3">Nombres ambiguos (“Córdoba” puede ser la ciudad o la provincia)</li>
+            <li data-i18n="y.s3.c5.l4">Fechas en otro formato</li>
+            <li data-i18n="y.s3.c5.l5">Mensajes que no puede interpretar</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h3 data-i18n="y.s3.c6.t">No dejar al conductor trabado</h3>
+          <p data-i18n="y.s3.c6.p">El conductor puede reiniciar escribiendo “reset”. Si le falta documentación, puede dejar el proceso en espera y retomarlo más tarde.</p>
+        </article>
+      </div>
+
+      <h3 class="case-sub" data-i18n="case.dc.sub">Decisiones clave</h3>
+      <ol class="case-decisions">
+        <li>
+          <span class="dec-k"><span>01</span> · <span data-i18n="case.dc.k">Decisión</span></span>
+          <h4 data-i18n="y.dc1.t">Mostrar los datos en lugar de pedirlos</h4>
+          <p data-i18n="y.dc1.p">En lugar de pedirle al conductor todos sus datos en cada viaje, el bot los busca en las bases y se los muestra para que los confirme.</p>
+          <dl class="dec-trade">
+            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="y.dc1.gave">Más dependencia de que las bases estuvieran al día, y caminos extra para cuando no lo estaban.</dd></div>
+            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="y.dc1.got">Menos texto para escribir y menos errores de tipeo en cada viaje.</dd></div>
+          </dl>
+        </li>
+        <li>
+          <span class="dec-k"><span>02</span> · <span data-i18n="case.dc.k">Decisión</span></span>
+          <h4 data-i18n="y.dc2.t">Un formato de respuesta para cada pregunta</h4>
+          <p data-i18n="y.dc2.p">En lugar de aceptar texto libre en todo el chat, usé botones para las decisiones cerradas y opciones numeradas para las listas largas.</p>
+          <dl class="dec-trade">
+            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="y.dc2.gave">Libertad para que el conductor responda con sus palabras.</dd></div>
+            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="y.dc2.got">Respuestas que el bot entiende a la primera, sin interpretar mensajes ambiguos.</dd></div>
+          </dl>
+        </li>
+        <li>
+          <span class="dec-k"><span>03</span> · <span data-i18n="case.dc.k">Decisión</span></span>
+          <h4 data-i18n="y.dc3.t">Un proceso que se puede pausar</h4>
+          <p data-i18n="y.dc3.p">En lugar de cortar el registro cuando falta documentación, el conductor puede dejarlo en espera y retomarlo más tarde.</p>
+          <dl class="dec-trade">
+            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="y.dc3.gave">Más estados que diseñar y que QA tenía que probar.</dd></div>
+            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="y.dc3.got">Nadie pierde lo que ya cargó por un papel que le falta.</dd></div>
+          </dl>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="case-sec" aria-labelledby="y-s4">
+    <p class="kicker" data-i18n="y.s4.k">04 / El recorrido</p>
+    <div class="case-body">
+      <h2 id="y-s4" data-i18n="y.s4.t">De la identificación a la llegada</h2>
+      <ol class="case-steps">
+        <li>
+          <span class="step-k">01</span>
+          <h3 data-i18n="y.s4.1.t">Identificación</h3>
+          <p data-i18n="y.s4.1.p">El conductor ingresa su número de 6 dígitos. El bot lo busca en la base y le muestra sus datos para confirmar. Si no existe o algo está mal, puede cargarlos o corregirlos.</p>
+        </li>
+        <li>
+          <span class="step-k">02</span>
+          <h3 data-i18n="y.s4.2.t">Carga del viaje</h3>
+          <p data-i18n="y.s4.2.p">El conductor elige entre viaje rutinario y no rutinario, e indica origen, fecha y hora de salida y destino. Con Google Maps, el asistente calcula la mejor ruta según la distancia y el riesgo, y le devuelve un resumen con la llegada estimada, la distancia y las condiciones del camino para que lo confirme.</p>
+        </li>
+        <li>
+          <span class="step-k">03</span>
+          <h3 data-i18n="y.s4.3.t">Vehículo</h3>
+          <p data-i18n="y.s4.3.p">El bot valida el dominio en la base de vehículos. Si el vehículo no está, el conductor puede registrarlo en el momento.</p>
+        </li>
+        <li>
+          <span class="step-k">04</span>
+          <h3 data-i18n="y.s4.4.t">Supervisor</h3>
+          <p data-i18n="y.s4.4.p">El bot muestra el supervisor asociado y su teléfono para confirmarlos o actualizarlos.</p>
+        </li>
+        <li>
+          <span class="step-k">05</span>
+          <h3 data-i18n="y.s4.5.t">Documentación</h3>
+          <p data-i18n="y.s4.5.p">El bot lista la documentación personal, la del vehículo, los elementos de seguridad y el equipamiento obligatorio. Si falta algo, le indica al conductor qué le falta y le deja confirmarlo más tarde, poner el proceso en espera o salir.</p>
+        </li>
+        <li>
+          <span class="step-k">06</span>
+          <h3 data-i18n="y.s4.6.t">Evaluación de riesgo</h3>
+          <p data-i18n="y.s4.6.p">Son cinco preguntas: conocimiento de la ruta, comunicación disponible, personas por vehículo, horas de trabajo previas y tipo de camino. Al final, el bot muestra un resumen para corregir cualquier respuesta.</p>
+        </li>
+        <li>
+          <span class="step-k">07</span>
+          <h3 data-i18n="y.s4.7.t">Aprobación y seguimiento</h3>
+          <ul class="case-mini">
+            <li data-i18n="y.s4.7.l1">Según el riesgo, el viaje queda aprobado o pendiente de aprobación del supervisor.</li>
+            <li data-i18n="y.s4.7.l2">Antes de la hora de salida, el bot le envía un recordatorio al conductor.</li>
+            <li data-i18n="y.s4.7.l3">Durante el viaje, el conductor puede reportar un incidente.</li>
+            <li data-i18n="y.s4.7.l4">Al llegar, indica la finalización.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="case-sec" aria-labelledby="y-s5">
+    <p class="kicker" data-i18n="y.s5.k">05 / Resultado</p>
+    <div class="case-body">
+      <h2 id="y-s5" data-i18n="y.s5.t">Un registro que ya no depende de una llamada</h2>
+      <p data-i18n="y.s5.p1">Las conversaciones se probaron con conductores. Por un lado se evaluó el diseño conversacional, y por otro QA validó el funcionamiento. Con lo que surgió de esas pruebas se hicieron ajustes y el asistente se implementó.</p>
+      <p class="case-callout" data-i18n="y.s5.p2">Ahora el registro del viaje ya no depende de una llamada: el conductor lo completa en un flujo guiado por WhatsApp, y los datos quedan cargados en las bases del sistema.</p>
+      <p data-i18n="y.s5.p3">El asistente funciona sobre la API de WhatsApp de Meta y usa Google Maps para calcular las rutas.</p>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Casos" data-i18n-aria="case.nav">
+    <a class="next-case" href="verde-energy-group.html">
+      <span class="next-case-k" data-i18n="case.next">Siguiente caso</span>
+      <span class="next-case-t">Verde Energy Group <span class="next-case-arrow" aria-hidden="true">→</span></span>
+    </a>
+  </nav>
+</main>
+
+<div class="end-band" id="contacto">
+  <span class="cross tl" aria-hidden="true"></span>
+  <span class="cross tr" aria-hidden="true"></span>
+  <span class="cross bl" aria-hidden="true"></span>
+  <span class="cross br" aria-hidden="true"></span>
+  <div class="wrap">
+    <section class="contact" aria-labelledby="contact-title">
+      <p class="eyebrow" data-i18n="case.contact.k">Contacto</p>
+      <h2 id="contact-title" data-i18n="contact.title">Construyamos juntos productos digitales claros.</h2>
+      <p class="contact-sub" data-i18n="contact.text">Si tu equipo necesita simplificar procesos complejos, hablemos.</p>
+      <div class="mail-row">
+        <a class="contact-mail" href="mailto:giulianogiovanola@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span>giulianogiovanola@gmail.com</span>
+        </a>
+        <button type="button" class="copy-btn" data-copy="giulianogiovanola@gmail.com" aria-label="Copiar email" data-i18n-aria="contact.copy.aria">
+          <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+          <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+          <span class="copy-label" data-i18n="contact.copy" aria-live="polite">Copiar</span>
+        </button>
+      </div>
+      <div class="contact-actions">
+        <a class="ghost-btn" href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.5H3V9.75Zm6.5 0h3.83v1.57h.05c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.79 2.66 4.79 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75Z"/></svg>
+          LinkedIn ↗
+        </a>
+        <a class="ghost-btn" href="../assets/documents/cv-giuliano-giovanola.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span data-i18n="cv">Descargar CV (PDF)</span>
+        </a>
+      </div>
+    </section>
+    <footer class="end-foot">
+      <span>Giuliano Giovanola © 2026 · UX/UI &amp; Product Designer</span>
+      <span data-i18n="footer.location">Argentina · Disponible para trabajo remoto</span>
+    </footer>
+  </div>
+</div>
+<a class="to-top" href="#" aria-label="Volver arriba" data-i18n-aria="contact.top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg></a>
+<script src="../js/i18n-ypf.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

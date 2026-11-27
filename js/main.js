@@ -27,34 +27,42 @@ const EN = {
 
   'work.kicker': '02 / Work',
   'work.title': 'Some of the projects I have worked on.',
-  'work.intro': 'A summary of my client projects and a few case studies in detail, with the full process.',
-  'work.sub.clients': 'Client projects',
-  'work.sub.studies': 'Case studies',
-  'work.ternium.ind': 'Steel manufacturing',
-  'work.ternium.desc': 'Designed clear, consistent interfaces for data-dense industrial platforms, and expanded their visual language with 3D assets of fleet and industrial infrastructure.',
-  'work.ypf.ind': 'Energy',
-  'work.ypf.desc': 'Designed the conversational content for an institutional chatbot, from the core text flow to its voice adaptation, and contributed to mobile design and developer handoff.',
-  'work.edesur.ind': 'Electric utilities',
-  'work.edesur.desc': 'Turned an audit of an existing product into a design proposal prioritized by business goals and validated with users.',
-  'work.toyota.ind': 'Automotive',
-  'work.toyota.desc': 'Redesigned a mobile app to simplify its navigation and core flows, iterating on prototypes through developer handoff.',
+  'work.intro': 'Four client projects across different industries, with their process in detail.',
 
-  'studies.type.mobile': 'Mobile app',
   'studies.role': 'Role',
   'studies.focus': 'Focus',
   'studies.work': 'Work',
   'studies.cta': 'View case',
-  'studies.medora.role': 'UX/UI Designer',
-  'studies.medora.desc': 'A mobile app for accessing health services in a simple way. I designed the onboarding, sign-up and log-in so anyone can create an account and get in without friction.',
-  'studies.medora.focus': 'Reducing friction in sign-up, which in health apps tends to be long and unclear.',
-  'studies.medora.work': 'Benchmark, competitive analysis, user persona, problem definition, user flow, information architecture, wireframes, visual system, components, UI and interactive prototype.',
-  'studies.medora.alt': 'Screens from the Medora app',
-  'studies.type.web': 'Web design',
-  'studies.sonos.desc': 'A redesign of the product page for Sonos’ compact subwoofer, made as an academic project. I designed and built a landing page that tells the product as a story, starting with emotion and ending with the technical details.',
-  'studies.sonos.role': 'UX/UI Designer and front-end development',
-  'studies.sonos.focus': 'Turning technical specs into clear benefits, along a path that goes from the general to the specific.',
-  'studies.sonos.work': 'Benchmark of the product, the Sonos website and app, wireframes, visual system, UI and prototype in Figma, and development in HTML, CSS and JavaScript.',
-  'studies.sonos.alt': 'Sonos Sub Mini landing page on desktop and mobile',
+  'studies.type.platform': 'B2B platforms',
+  'studies.type.conv': 'Conversational design',
+  'studies.ternium.alt': 'Diagram: operators, supervisors, administrative staff and logistics connected to platforms sharing one design system, on web and mobile, with 3D visualization',
+  'studies.ternium.note': 'Under a confidentiality agreement: the case shows the process without product screens.',
+  'studies.ternium.desc': 'Fleet management and logistics platforms and plant dashboards for operators, supervisors, administrative staff and logistics teams, with responsive versions and mobile apps.',
+  'studies.ternium.role': 'UX/UI Designer, product-focused',
+  'studies.ternium.focus': 'Replacing spreadsheets and informal communication with digital flows designed for real conditions on the plant floor.',
+  'studies.ternium.work': 'Product Discovery, on-site research, personas, journeys, prototypes, usability testing, design system and developer handoff.',
+  'studies.ypf.alt': 'Three screens of the YPF Ruta conversation on WhatsApp: driver identification, entering the trip origin and the risk assessment summary',
+  'studies.ypf.role': 'UX Designer, conversational design',
+  'studies.ypf.desc': 'A WhatsApp assistant for drivers to log their trips and check their vehicle, documents and risk before heading out on the road.',
+  'studies.ypf.focus': 'Replacing trip logging by phone call with a guided conversation that confirms each piece of data and offers clear paths to fix errors.',
+  'studies.ypf.work': 'Discovery, overall flow, conversational flows, UX writing, error handling, testing with drivers and refinements.',
+  'studies.type.corp': 'Corporate website',
+  'studies.verde.focus': 'Modernizing an outdated site and organizing the information so every visitor quickly finds what they need.',
+  'studies.verde.alt': 'Verde Energy Group website home page on a monitor',
+  'studies.verde.desc': 'A full redesign of the website for an Irish solar energy and energy efficiency company serving commercial and industrial businesses.',
+  'studies.verde.work': 'Benchmark, site architecture, wireframes, visual system, components, multi-step form, prototype, animations and client reviews.',
+  'studies.facets.alt': 'Excellent Facets website home page on a monitor and a phone',
+  'studies.facets.desc': 'Website redesign for a diamond supplier serving luxury jewelry and watch maisons, in English and French.',
+  'studies.facets.focus': 'Conveying luxury, trust and modernity without losing the brand’s history, and giving its ethical commitment the same weight as the diamonds.',
+  'studies.facets.work': 'Benchmark, site architecture, wireframes, visual system, English and French versions, desktop and mobile, prototype, animations and client reviews.',
+
+  'case.nav': 'Cases',
+  'case.ask': 'What was asked',
+  'case.real': 'The real problem',
+  'case.dc.sub': 'Key decisions',
+  'case.dc.k': 'Decision',
+  'case.dc.gave': 'Gave up',
+  'case.dc.got': 'Gained',
 
   'contact.kicker': '03 / Contact',
   'contact.title': 'Let’s build clear digital products together.',
@@ -65,7 +73,7 @@ const EN = {
   'footer.location': 'Argentina · Open to remote work',
 };
 
-// Cada caso de estudio suma sus propias traducciones (por ejemplo, js/i18n-medora.js)
+// Cada caso de estudio suma sus propias traducciones (por ejemplo, js/i18n-ternium.js)
 Object.assign(EN, window.I18N_EXTRA || {});
 
 const root = document.documentElement;
@@ -85,7 +93,24 @@ const altEls = [...document.querySelectorAll('[data-i18n-alt]')];
 textEls.forEach(el => { el.dataset.es = el.textContent; });
 ariaEls.forEach(el => { el.dataset.esAria = el.getAttribute('aria-label'); });
 altEls.forEach(el => { el.dataset.esAlt = el.alt; });
+// Imágenes con versiones por idioma y por tema. El src es la versión en español y modo claro;
+// las demás van en data-src-en, data-src-dark y data-src-en-dark (si falta alguna, se usa la más cercana).
+const srcEls = [...document.querySelectorAll('img[data-src-en], img[data-src-dark]')];
+srcEls.forEach(el => { el.dataset.srcEs = el.getAttribute('src'); });
+function updateImages() {
+  const en = root.lang === 'en';
+  const dark = root.getAttribute('data-theme') === 'dark';
+  srcEls.forEach(el => {
+    const d = el.dataset;
+    let src = d.srcEs;
+    if (en && dark) src = d.srcEnDark || d.srcEn || d.srcDark || src;
+    else if (en) src = d.srcEn || src;
+    else if (dark) src = d.srcDark || src;
+    if (el.getAttribute('src') !== src) el.setAttribute('src', src);
+  });
+}
 const metaEs = metaDesc ? metaDesc.content : '';
+const titleEs = document.title;
 
 function setLang(lang) {
   const en = lang === 'en';
@@ -102,7 +127,10 @@ function setLang(lang) {
     const t = EN[el.dataset.i18nAlt];
     el.alt = en && t ? t : el.dataset.esAlt;
   });
+  updateImages();
   if (metaDesc) metaDesc.content = en ? EN['meta.description'] : metaEs;
+  // Título de la pestaña: solo cambia si la página tiene su traducción (meta.title)
+  document.title = en && EN['meta.title'] ? EN['meta.title'] : titleEs;
   markLang(root.lang);
   store('lang', root.lang);
 }
@@ -121,6 +149,7 @@ function setTheme(theme) {
   if (dark) root.setAttribute('data-theme', 'dark');
   else root.removeAttribute('data-theme');
   document.querySelector('.theme-btn').setAttribute('aria-pressed', String(dark));
+  updateImages();
   store('theme', dark ? 'dark' : 'light');
 }
 
