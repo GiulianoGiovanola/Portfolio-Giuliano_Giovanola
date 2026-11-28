@@ -95,5 +95,5 @@ window.I18N_EXTRA = {
   'y.s5.p1': 'The conversations were tested with drivers. The conversational design was evaluated on one side, and QA validated how it worked on the other. The findings from those tests led to refinements, and the assistant was rolled out.',
   'y.s5.p2': 'Trip logging no longer depends on a phone call: drivers complete it in a guided WhatsApp flow, and the data is stored in the system’s databases.',
   'y.s5.p3': 'The assistant runs on Meta’s WhatsApp API and uses Google Maps to calculate routes.',
-  'y.learn': 'In a chat, every error needs a way out. Designing the alternative paths took longer than the ideal path, and it was what made the assistant work.',
+  'y.learn': 'In a chat, every error needs a way out. The alternative paths mattered as much as the ideal path, because in practice the data does not always come in right the first time.',
 };

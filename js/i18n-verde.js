@@ -96,5 +96,5 @@ window.I18N_EXTRA = {
   'v.s5.k': '05 / Outcome',
   'v.s5.t': 'From prototype to live site',
   'v.s5.p': 'The client’s development team built the site from the screens, the prototype and the animations, and it is live today at',
-  'v.learn': 'Modernizing a site is not just a visual matter. Organizing the information and giving every page a next step mattered as much as the looks.',
+  'v.learn': 'Some ideas are easier to understand in motion. Pairing the screens with a prototype and animations helped every section get built the way it was designed, especially the horizontal scroll.',
 };

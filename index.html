@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Portfolio de Giuliano Giovanola, diseñador UX/UI y Product Designer.">
   <title>Giuliano Giovanola - UX/UI & Product Designer</title>
+  <link rel="icon" href="assets/images/favicon-dark.ico" sizes="32x32">
   <link rel="icon" type="image/svg+xml" href="assets/images/gg-favicon-light.svg" data-light="assets/images/gg-favicon-light.svg" data-dark="assets/images/gg-favicon-dark.svg">
-  <script>try { if (localStorage.getItem('theme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var fav = document.querySelector('link[rel="icon"]'); fav.href = fav.dataset.dark; } } catch (e) { }</script>
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon-dark.png">
+  <script>try { if (localStorage.getItem('theme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var fav = document.querySelector('link[rel="icon"][type="image/svg+xml"]'); fav.href = fav.dataset.dark; } } catch (e) { }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=17">
+  <link rel="stylesheet" href="css/styles.css?v=31">
 </head>
 
 <body>
@@ -22,6 +24,12 @@
     <div class="wrap topbar">
       <a class="id" href="#inicio"><img class="id-logo id-logo-light" src="assets/images/gg-navbar-light.svg" width="28" height="28" alt=""><img class="id-logo id-logo-dark" src="assets/images/gg-navbar-dark.svg" width="28" height="28" alt=""><span>Giuliano Giovanola</span></a>
       <div class="links">
+        <nav class="top-nav" aria-label="Principal" data-i18n-aria="nav.main">
+          <a href="#sobre-mi" data-i18n="footer.profile">Perfil</a>
+          <a href="#trabajo" data-i18n="footer.work">Trabajo</a>
+          <a href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="nav-cv" href="assets/documents/cv-giuliano-giovanola.pdf" download data-i18n="nav.cv">CV</a>
+        </nav>
         <div class="controls">
           <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.group">
             <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
@@ -41,15 +49,6 @@
             </svg>
           </button>
         </div>
-        <a class="pill" href="assets/documents/cv-giuliano-giovanola.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3v12" />
-            <path d="m7 11 5 5 5-5" />
-            <path d="M5 21h14" />
-          </svg>
-          <span class="pill-full" data-i18n="cv.nav">Descargar CV</span><span class="pill-short">CV</span>
-        </a>
       </div>
     </div>
   </header>
@@ -79,14 +78,14 @@
               <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" />
               <circle cx="12" cy="9.5" r="2.5" />
             </svg>
-            <span data-i18n="hero.location">Argentina · Disponible para trabajo remoto</span>
+            <span data-i18n="hero.location">Buenos Aires · Disponible para trabajo remoto</span>
           </span>
           <a href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path
                 d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.5H3V9.75Zm6.5 0h3.83v1.57h.05c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.79 2.66 4.79 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75Z" />
             </svg>
-            LinkedIn ↗
+            LinkedIn
           </a>
         </div>
       </div>
@@ -96,12 +95,21 @@
 
   <div class="wrap">
     <main>
+      <div class="glance glance-top">
+        <p class="kicker" data-i18n="glance.kicker">Experiencia en números</p>
+        <ul class="stats">
+          <li><p class="stat-num">4+</p><p class="stat-label" data-i18n="glance.years">años diseñando productos digitales</p></li>
+          <li><p class="stat-num">6</p><p class="stat-label" data-i18n="glance.industries">rubros, entre ellos energía, industria y automotriz</p></li>
+          <li><p class="stat-num">25+</p><p class="stat-label" data-i18n="glance.projects">proyectos entregados</p></li>
+          <li><p class="stat-num">3</p><p class="stat-label" data-i18n="glance.continents">regiones: Latam, Europa y EE.&nbsp;UU.</p></li>
+        </ul>
+      </div>
+
       <section id="sobre-mi" class="profile">
         <div class="copy">
           <p class="kicker" data-i18n="profile.kicker">01 / Perfil</p>
           <h2 data-i18n="profile.title">Diseño productos que llegan a producción.</h2>
-          <p data-i18n="profile.p1">Hace más de 4 años que diseño productos institucionales, plataformas B2B y proyectos
-            regionales e internacionales para clientes de energía, siderurgia, automotriz y tecnología.</p>
+          <p data-i18n="profile.p1">Hace más de 4 años que diseño productos institucionales, plataformas B2B y proyectos regionales e internacionales para clientes de energía, siderurgia, automotriz, lujo, tecnología y marketing.</p>
           <p data-i18n="profile.p2">Me especializo en simplificar flujos complejos y convertirlos en interfaces claras.
             Cada decisión de diseño la apoyo en research y en los objetivos del negocio.</p>
           <p data-i18n="profile.p3">Me gusta trabajar con equipos multidisciplinarios y estar cerca de desarrollo para
@@ -133,6 +141,54 @@
           </div>
         </div>
       </section>
+
+      <div class="glance">
+        <div class="how">
+          <p class="kicker" data-i18n="how.kicker">Cómo trabajo</p>
+          <ol class="how-list">
+            <li>
+              <span class="how-num">01</span>
+              <h3 data-i18n="how.1.t">Entender antes de diseñar</h3>
+              <p data-i18n="how.1.p">Investigo en el contexto real de uso, como en planta, para diseñar sobre cómo se trabaja de verdad.</p>
+            </li>
+            <li>
+              <span class="how-num">02</span>
+              <h3 data-i18n="how.2.t">Un flujo para cada usuario</h3>
+              <p data-i18n="how.2.p">Cada rol tiene tareas distintas. Diseño vistas y caminos pensados para cada uno, incluidos los errores.</p>
+            </li>
+            <li>
+              <span class="how-num">03</span>
+              <h3 data-i18n="how.3.t">Validar antes de desarrollar</h3>
+              <p data-i18n="how.3.p">Pruebo prototipos con usuarios e itero antes de que el diseño llegue a desarrollo.</p>
+            </li>
+            <li>
+              <span class="how-num">04</span>
+              <h3 data-i18n="how.4.t">Acompañar hasta producción</h3>
+              <p data-i18n="how.4.p">Preparo specs, reviso lo implementado y trabajo cerca de desarrollo para que el diseño llegue bien.</p>
+            </li>
+          </ol>
+          <ul class="info-chips">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg>Buenos Aires (UTC−3)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18Z" /></svg><span data-i18n="info.remote">Trabajo remoto</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9" /><path d="M8.5 3v2" /><path d="M11 5c-1 4-3.5 7-7 9" /><path d="M6 9c1.5 2.5 3.5 4 6 5" /><path d="m13 21 4-9 4 9" /><path d="M14.5 18h5" /></svg><span data-i18n="info.langs">Español (nativo), inglés (intermedio)</span></li>
+          </ul>
+        </div>
+
+        <div class="clients">
+          <p class="kicker" data-i18n="clients.kicker">Empresas para las que diseñé</p>
+          <ul class="client-logos">
+            <li><img class="logo-box" src="assets/images/logo-ternium.svg" alt="Ternium" loading="lazy"></li>
+            <li><img class="logo-box" src="assets/images/logo-ypf.svg" alt="YPF" loading="lazy"></li>
+            <li><img class="logo-tall" src="assets/images/logo-toyota.svg" alt="Toyota" loading="lazy"></li>
+            <li><img src="assets/images/logo-edesur.png" alt="Edesur" loading="lazy"></li>
+            <li><img class="logo-tall" src="assets/images/logo-verde.svg" alt="Verde Energy Group" loading="lazy"></li>
+            <li><img class="logo-thin" src="assets/images/logo-excellent-facets.svg" alt="Excellent Facets" loading="lazy"></li>
+            <li><img class="logo-tall" src="assets/images/logo-arlo.svg" alt="Arlo Solutions" loading="lazy"></li>
+            <li><img class="logo-tall" src="assets/images/logo-starlo.svg" alt="Starlo Innovation" loading="lazy"></li>
+            <li><img class="logo-box" src="assets/images/logo-flavvrr.png" alt="FLAVVRR" loading="lazy"></li>
+          </ul>
+        </div>
+      </div>
 
       <section id="trabajo" class="cases">
         <header class="cases-head">
@@ -263,7 +319,7 @@
       <div class="contact-main">
         <div class="contact-copy">
           <h2 id="contact-title" class="contact-big"><span data-i18n="contact.t1">Hagamos que lo complejo sea</span> <span class="wavy" data-i18n="contact.t2">simple.</span></h2>
-          <p class="avail"><span class="avail-dot" aria-hidden="true"></span><span data-i18n="contact.avail">Disponible para trabajo remoto</span></p>
+          <p class="avail"><span class="avail-dot" aria-hidden="true"></span><span data-i18n="contact.avail">Abierto a roles Semi Senior y Senior · Remoto</span></p>
         </div>
         <div class="contact-cta">
           <button type="button" class="cta-btn" data-copy="giulianogiovanola@gmail.com" aria-label="Hablemos: copiar email" data-i18n-aria="contact.cta.aria"><span class="cta-label" data-i18n="contact.cta">Hablemos</span><span class="cta-arrow" aria-hidden="true">→</span><span class="cta-done" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span data-i18n="talk.copied">Email copiado</span></span></button>
@@ -276,12 +332,12 @@
       <nav class="foot-nav" aria-label="Pie de página" data-i18n-aria="footer.nav">
         <a href="#sobre-mi" data-i18n="footer.profile">Perfil</a>
         <a href="#trabajo" data-i18n="footer.work">Trabajo</a>
-        <a href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="assets/documents/cv-giuliano-giovanola.pdf" download>CV</a>
+        <a href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="assets/documents/cv-giuliano-giovanola.pdf" download data-i18n="nav.cv">CV</a>
       </nav>
       <div class="foot-meta">
-        <span>© 2026 Giuliano Giovanola · UX/UI &amp; Product Designer</span>
-        <span data-i18n="footer.location">Argentina (UTC−3)</span>
+        <span>© 2026 Giuliano Giovanola</span>
+        <span data-i18n="footer.location">Buenos Aires → Remoto en todo el mundo</span>
       </div>
     </footer>
     </div>
@@ -296,7 +352,7 @@
   <span class="visually-hidden talk-status" role="status"></span>
 </div>
 <a class="to-top" href="#" aria-label="Volver arriba" data-i18n-aria="contact.top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg></a>
-  <script src="js/main.js?v=12"></script>
+  <script src="js/main.js?v=31"></script>
 </body>
 
 </html>

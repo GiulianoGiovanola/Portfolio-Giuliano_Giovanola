@@ -4,16 +4,18 @@
 const EN = {
   'meta.description': 'Portfolio of Giuliano Giovanola, UX/UI and Product Designer.',
   'skip': 'Skip to content',
-  'cv.nav': 'Download CV',
+  'nav.cv': 'Resume',
+  'nav.main': 'Main',
+  'case.toc': 'In this case',
   'lang.group': 'Language',
   'theme.dark': 'Dark mode',
 
   'hero.lead': 'I design digital products for large companies in industry, energy and automotive, from research to developer handoff.',
-  'hero.location': 'Argentina · Open to remote work',
+  'hero.location': 'Buenos Aires · Open to remote work',
 
   'profile.kicker': '01 / Profile',
   'profile.title': 'I design products that make it to production.',
-  'profile.p1': 'For more than 4 years I have designed institutional products, B2B platforms and regional and international projects for clients in energy, steel, automotive and technology.',
+  'profile.p1': 'For more than 4 years I have designed institutional products, B2B platforms and regional and international projects for clients in energy, steel, automotive, luxury, technology and marketing.',
   'profile.p2': 'I specialize in simplifying complex workflows and turning them into clear interfaces. Every design decision I make is grounded in research and business goals.',
   'profile.p3': 'I enjoy working with multidisciplinary teams and staying close to development, so what I design reaches production as intended.',
 
@@ -24,6 +26,23 @@ const EN = {
   'exp.b2b': 'B2B Platforms',
   'exp.a11y': 'Accessibility (WCAG)',
 
+  'glance.kicker': 'Experience at a glance',
+  'glance.years': 'years designing digital products',
+  'glance.industries': 'industries, including energy, manufacturing and automotive',
+  'glance.projects': 'projects delivered',
+  'glance.continents': 'regions: LatAm, Europe and the US',
+  'how.kicker': 'How I work',
+  'how.1.t': 'Understand before designing',
+  'how.1.p': 'I research in the real context of use, like on the plant floor, to design around how work actually gets done.',
+  'how.2.t': 'A flow for every user',
+  'how.2.p': 'Each role has different tasks. I design views and paths for each one, errors included.',
+  'how.3.t': 'Validate before building',
+  'how.3.p': 'I test prototypes with users and iterate before the design reaches development.',
+  'how.4.t': 'Follow through to production',
+  'how.4.p': 'I prepare specs, review what gets built and work closely with development so the design ships as intended.',
+  'info.remote': 'Remote work',
+  'info.langs': 'Spanish (native), English (intermediate)',
+  'clients.kicker': 'Companies I’ve designed for',
   'work.kicker': '02 / Work',
   'work.title': 'Some of the projects I have worked on.',
 
@@ -69,7 +88,7 @@ const EN = {
 
   'contact.t1': 'Let’s make the complex',
   'contact.t2': 'simple.',
-  'contact.avail': 'Available for remote work',
+  'contact.avail': 'Open to Mid-level and Senior roles · Remote',
   'contact.cta': 'Let’s talk',
   'contact.cta.aria': 'Let’s talk: copy email',
   'footer.nav': 'Footer',
@@ -79,7 +98,7 @@ const EN = {
   'contact.copy.aria': 'Copy email',
   'talk': 'Let’s talk',
   'talk.copied': 'Email copied',
-  'footer.location': 'Argentina (UTC−3)',
+  'footer.location': 'Buenos Aires → Remote worldwide',
 };
 
 // Cada caso de estudio suma sus propias traducciones (por ejemplo, js/i18n-ternium.js)
@@ -159,7 +178,7 @@ function setTheme(theme) {
   else root.removeAttribute('data-theme');
   document.querySelector('.theme-btn').setAttribute('aria-pressed', String(dark));
   // El ícono de la pestaña sigue el modo del sitio
-  const fav = document.querySelector('link[rel="icon"]');
+  const fav = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
   if (fav) fav.href = dark ? fav.dataset.dark : fav.dataset.light;
   updateImages();
   store('theme', dark ? 'dark' : 'light');
@@ -239,6 +258,77 @@ if (toTop) {
   });
 }
 onScroll();
+
+// "Experiencia en números": cada cifra cuenta desde 0 hasta su valor la primera vez que
+// la sección entra en pantalla. El valor final está escrito en el HTML, así que sin
+// JavaScript (o con movimiento reducido) se ve directamente.
+const statNums = document.querySelectorAll('.stat-num');
+if (statNums.length && 'IntersectionObserver' in window && !reduceMotion.matches) {
+  const countUp = el => {
+    const [, target, suffix] = el.dataset.final.match(/^(\d+)(.*)$/);
+    const end = Number(target);
+    const duration = 1200;
+    const start = performance.now();
+    let done = false;
+    const tick = now => {
+      if (done) return;
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // desacelera al final
+      el.textContent = Math.round(end * eased) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else done = true;
+    };
+    requestAnimationFrame(tick);
+    // Respaldo: si los cuadros de animación se frenan (por ejemplo, con la pestaña en
+    // segundo plano), al terminar el tiempo se muestra igual el valor final
+    setTimeout(() => { done = true; el.textContent = el.dataset.final; }, duration + 150);
+  };
+  statNums.forEach(el => {
+    const text = el.textContent.trim();
+    if (!/^\d+/.test(text)) return;
+    el.dataset.final = text;
+    el.textContent = '0' + text.replace(/^\d+/, '');
+  });
+  const statsObserver = new IntersectionObserver((entries, obs) => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    statNums.forEach(el => { if (el.dataset.final) countUp(el); });
+    obs.disconnect();
+  }, { threshold: 0.4 });
+  statsObserver.observe(document.querySelector('.stats'));
+}
+
+// Índice de los casos: marca la sección que se está leyendo. Se toma la última sección
+// cuyo comienzo ya pasó el 40% superior de la pantalla (o el borde del índice, si está más abajo).
+const toc = document.querySelector('.case-toc');
+if (toc) {
+  const tocLinks = [...toc.querySelectorAll('a')];
+  const tocTargets = tocLinks.map(a => document.getElementById(a.hash.slice(1))?.closest('section'));
+  let current = null;
+  const markToc = (instant) => {
+    const line = Math.max(toc.getBoundingClientRect().bottom + 40, window.innerHeight * 0.4);
+    let idx = -1;
+    tocTargets.forEach((sec, i) => { if (sec && sec.getBoundingClientRect().top <= line) idx = i; });
+    // Al llegar al final de la página se marca la última sección aunque no haya llegado arriba
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = tocLinks.length - 1;
+    const link = tocLinks[idx] || null;
+    if (link === current) return;
+    if (current) current.removeAttribute('aria-current');
+    current = link;
+    if (link) {
+      link.setAttribute('aria-current', 'true');
+      // En el celular el índice se desplaza de costado: se centra el link activo
+      const list = toc.querySelector('ol');
+      if (list.scrollWidth > list.clientWidth) {
+        const linkBox = link.getBoundingClientRect(), listBox = list.getBoundingClientRect();
+        const left = list.scrollLeft + (linkBox.left - listBox.left) - (list.clientWidth - linkBox.width) / 2;
+        list.scrollTo({ left, behavior: instant === true || reduceMotion.matches ? 'auto' : 'smooth' });
+      }
+    }
+  };
+  window.addEventListener('scroll', () => markToc(false), { passive: true });
+  window.addEventListener('resize', () => markToc(true));
+  markToc(true);
+}
 
 // Botón "Copiar" del email: lo copia al portapapeles y muestra "Copiado" por unos segundos
 function copyText(text) {

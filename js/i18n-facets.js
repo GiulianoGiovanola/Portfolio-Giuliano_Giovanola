@@ -49,12 +49,12 @@ window.I18N_EXTRA = {
   'f.s3.7.b': 'Prototype and animations',
   'f.s3.7': 'for the development team, and client reviews at every stage.',
 
-  'f.dc1.t': 'Every screen in English and French',
-  'f.dc1.p': 'I designed both versions of every screen, instead of designing in English and translating later.',
+  'f.dc1.t': 'Checking every screen in both languages',
+  'f.dc1.p': 'The client asked to see every screen in English and French. I used those versions to check that each screen worked with the French copy, which usually takes up more space.',
   'f.dc1.gave': 'Twice as many screens to design and review.',
   'f.dc1.got': 'Screens that work in both languages, even though French takes up more space.',
   'f.dc2.t': 'Commitment on the same level as the diamonds',
-  'f.dc2.p': 'Instead of leaving sustainability on a secondary page, I made it one of the three pillars on the home page and gave it its own menu.',
+  'f.dc2.p': 'I made sustainability one of the three pillars on the home page and gave it its own menu, on the same level as the diamonds.',
   'f.dc2.gave': 'Space on the home page that could have gone to the product.',
   'f.dc2.got': 'A message of trust that goes hand in hand with quality from the start.',
   'f.dc3.t': 'Plenty of space, with the diamond as the hero',
@@ -83,5 +83,5 @@ window.I18N_EXTRA = {
   'f.s5.t': 'From prototype to live site, in two languages',
   'f.s5.p1': 'The client’s development team built the redesign from the screens, the prototype and the animations. It is live today at',
   'f.s5.p2': ', in English and French.',
-  'f.learn': 'Designing in two languages from the start avoids surprises. Seeing every screen in French revealed space issues that never showed up in English.',
+  'f.learn': 'For a luxury brand, trust does not come from the product alone. Showing how the company works gave the site as much weight as showing its diamonds.',
 };
