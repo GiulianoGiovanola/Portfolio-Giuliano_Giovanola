@@ -5,7 +5,6 @@ window.I18N_EXTRA = {
   'meta.description': 'Ternium: UX/UI case study of fleet management, logistics and plant dashboard platforms. By Giuliano Giovanola.',
   'case.back': 'All projects',
   'case.next': 'Next case',
-  'case.contact.k': 'Contact',
 
   't.eyebrow': 'Case 01 · UX/UI Design · B2B Platforms · Industry',
   't.lead': 'Fleet management and logistics platforms and plant dashboards for operators, supervisors, administrative staff and logistics teams, on responsive web and mobile apps.',
@@ -73,7 +72,7 @@ window.I18N_EXTRA = {
   't.s3.c6.p': 'A design system with tokens and accessibility criteria, aligned with the React library, so every platform spoke the same language.',
 
   't.dc1.t': 'One flow per role, not one screen for everyone',
-  't.dc1.p': 'Instead of a single interface with all the information, I designed views and flows for operators, supervisors, administrative staff and logistics.',
+  't.dc1.p': 'I designed views and flows for operators, supervisors, administrative staff and logistics, instead of a single interface with all the information.',
   't.dc1.gave': 'More flows to design, document and maintain.',
   't.dc1.got': 'Each role quickly finds their own work, without going through information they do not use.',
   't.dc2.t': '3D where a table fell short',
@@ -81,7 +80,7 @@ window.I18N_EXTRA = {
   't.dc2.gave': 'More production time and more coordination with development.',
   't.dc2.got': 'Information you read at a glance, without parsing rows and columns.',
   't.dc3.t': 'A design system tied to the React library',
-  't.dc3.p': 'Instead of custom components for each platform, I built a design system with tokens aligned with the library development used.',
+  't.dc3.p': 'I built a design system with tokens aligned with the library development used, instead of custom components for each platform.',
   't.dc3.gave': 'Visual freedom on each screen.',
   't.dc3.got': 'Platforms that stay consistent with each other and a faster handoff to development.',
 
@@ -144,4 +143,5 @@ window.I18N_EXTRA = {
   't.s5.r4.t': '3D assets of the fleet, infrastructure and floor plans turn tables into visual information.',
   't.s5.r5.b': 'One experience across every platform.',
   't.s5.r5.t': 'A shared design system, with tokens and accessibility, across web and mobile.',
+  't.learn': 'What happens on the plant floor does not always match what the process says. Watching users where they work changed more decisions than any meeting.',
 };

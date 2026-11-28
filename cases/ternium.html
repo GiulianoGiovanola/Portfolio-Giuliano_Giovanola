@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Ternium: caso de estudio UX/UI de plataformas de gestión de flota, logística y dashboards de planta. Por Giuliano Giovanola.">
 <title>Ternium · Caso de estudio · Giuliano Giovanola</title>
-<script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}</script>
+<link rel="icon" type="image/svg+xml" href="../assets/images/gg-favicon-light.svg" data-light="../assets/images/gg-favicon-light.svg" data-dark="../assets/images/gg-favicon-dark.svg">
+<script>try { if (localStorage.getItem('theme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var fav = document.querySelector('link[rel="icon"]'); fav.href = fav.dataset.dark; } } catch (e) {}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/styles.css?v=17">
 </head>
 <body>
 <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
 
 <header class="site-header" id="top">
   <div class="wrap topbar">
-    <a class="id" href="../index.html#inicio">Giuliano Giovanola<span class="idrole"> | UX/UI &amp; Product Designer</span></a>
+    <a class="id" href="../index.html#inicio"><img class="id-logo id-logo-light" src="../assets/images/gg-navbar-light.svg" width="28" height="28" alt=""><img class="id-logo id-logo-dark" src="../assets/images/gg-navbar-dark.svg" width="28" height="28" alt=""><span>Giuliano Giovanola</span></a>
     <div class="links">
       <div class="controls">
         <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.group">
@@ -146,10 +147,10 @@
         <li>
           <span class="dec-k"><span>01</span> · <span data-i18n="case.dc.k">Decisión</span></span>
           <h4 data-i18n="t.dc1.t">Un flujo por rol, no una pantalla para todos</h4>
-          <p data-i18n="t.dc1.p">En lugar de una misma interfaz con toda la información, diseñé vistas y flujos para operario, supervisor, administrativo y logística.</p>
+          <p data-i18n="t.dc1.p">Diseñé vistas y flujos para operario, supervisor, administrativo y logística, en lugar de una misma interfaz con toda la información.</p>
           <dl class="dec-trade">
-            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="t.dc1.gave">Más flujos que diseñar, documentar y mantener.</dd></div>
-            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="t.dc1.got">Cada rol encuentra rápido lo suyo, sin pasar por información que no usa.</dd></div>
+            <div><dt data-i18n="case.dc.gave">A cambio de</dt><dd data-i18n="t.dc1.gave">Más flujos que diseñar, documentar y mantener.</dd></div>
+            <div><dt data-i18n="case.dc.got">Resultado</dt><dd data-i18n="t.dc1.got">Cada rol encuentra rápido lo suyo, sin pasar por información que no usa.</dd></div>
           </dl>
         </li>
         <li>
@@ -157,17 +158,17 @@
           <h4 data-i18n="t.dc2.t">3D donde una tabla no alcanzaba</h4>
           <p data-i18n="t.dc2.p">En lugar de mostrar flota, infraestructura y planos solo en tablas, sumé recursos 3D en las vistas donde aportaban claridad.</p>
           <dl class="dec-trade">
-            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="t.dc2.gave">Más tiempo de producción y de coordinación con desarrollo.</dd></div>
-            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="t.dc2.got">Información que se lee de un vistazo, sin interpretar filas y columnas.</dd></div>
+            <div><dt data-i18n="case.dc.gave">A cambio de</dt><dd data-i18n="t.dc2.gave">Más tiempo de producción y de coordinación con desarrollo.</dd></div>
+            <div><dt data-i18n="case.dc.got">Resultado</dt><dd data-i18n="t.dc2.got">Información que se lee de un vistazo, sin interpretar filas y columnas.</dd></div>
           </dl>
         </li>
         <li>
           <span class="dec-k"><span>03</span> · <span data-i18n="case.dc.k">Decisión</span></span>
           <h4 data-i18n="t.dc3.t">Un design system atado a la librería de React</h4>
-          <p data-i18n="t.dc3.p">En lugar de componentes a medida para cada plataforma, armé un design system con tokens alineado a la librería que usaba desarrollo.</p>
+          <p data-i18n="t.dc3.p">Armé un design system con tokens alineado a la librería que usaba desarrollo, en lugar de crear componentes a medida para cada plataforma.</p>
           <dl class="dec-trade">
-            <div><dt data-i18n="case.dc.gave">Cedí</dt><dd data-i18n="t.dc3.gave">Libertad visual en cada pantalla.</dd></div>
-            <div><dt data-i18n="case.dc.got">Gané</dt><dd data-i18n="t.dc3.got">Plataformas consistentes entre sí y un traspaso más rápido a desarrollo.</dd></div>
+            <div><dt data-i18n="case.dc.gave">A cambio de</dt><dd data-i18n="t.dc3.gave">Libertad visual en cada pantalla.</dd></div>
+            <div><dt data-i18n="case.dc.got">Resultado</dt><dd data-i18n="t.dc3.got">Plataformas consistentes entre sí y un traspaso más rápido a desarrollo.</dd></div>
           </dl>
         </li>
       </ol>
@@ -342,6 +343,16 @@
     </div>
   </section>
 
+  <section class="case-sec" aria-labelledby="t-s6">
+    <p class="kicker" id="t-s6" data-i18n="case.learn.k">06 / Qué aprendí</p>
+    <div class="case-body">
+      <figure class="case-learn">
+        <blockquote><p data-i18n="t.learn">Lo que pasa en planta no siempre coincide con lo que dice el proceso. Observar a los usuarios en su lugar de trabajo cambió más decisiones que cualquier reunión.</p></blockquote>
+        <figcaption>Giuliano Giovanola · UX/UI &amp; Product Designer</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <nav class="case-nav" aria-label="Casos" data-i18n-aria="case.nav">
     <a class="next-case" href="ypf-ruta.html">
       <span class="next-case-k" data-i18n="case.next">Siguiente caso</span>
@@ -357,39 +368,43 @@
   <span class="cross br" aria-hidden="true"></span>
   <div class="wrap">
     <section class="contact" aria-labelledby="contact-title">
-      <p class="eyebrow" data-i18n="case.contact.k">Contacto</p>
-      <h2 id="contact-title" data-i18n="contact.title">Construyamos juntos productos digitales claros.</h2>
-      <p class="contact-sub" data-i18n="contact.text">Si tu equipo necesita simplificar procesos complejos, hablemos.</p>
-      <div class="mail-row">
-        <a class="contact-mail" href="mailto:giulianogiovanola@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span>giulianogiovanola@gmail.com</span>
-        </a>
-        <button type="button" class="copy-btn" data-copy="giulianogiovanola@gmail.com" aria-label="Copiar email" data-i18n-aria="contact.copy.aria">
-          <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
-          <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
-          <span class="copy-label" data-i18n="contact.copy" aria-live="polite">Copiar</span>
-        </button>
-      </div>
-      <div class="contact-actions">
-        <a class="ghost-btn" href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.5H3V9.75Zm6.5 0h3.83v1.57h.05c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.79 2.66 4.79 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75Z"/></svg>
-          LinkedIn ↗
-        </a>
-        <a class="ghost-btn" href="../assets/documents/cv-giuliano-giovanola.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
-          <span data-i18n="cv">Descargar CV (PDF)</span>
-        </a>
+      <div class="contact-main">
+        <div class="contact-copy">
+          <h2 id="contact-title" class="contact-big"><span data-i18n="contact.t1">Hagamos que lo complejo sea</span> <span class="wavy" data-i18n="contact.t2">simple.</span></h2>
+          <p class="avail"><span class="avail-dot" aria-hidden="true"></span><span data-i18n="contact.avail">Disponible para trabajo remoto</span></p>
+        </div>
+        <div class="contact-cta">
+          <button type="button" class="cta-btn" data-copy="giulianogiovanola@gmail.com" aria-label="Hablemos: copiar email" data-i18n-aria="contact.cta.aria"><span class="cta-label" data-i18n="contact.cta">Hablemos</span><span class="cta-arrow" aria-hidden="true">→</span><span class="cta-done" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span data-i18n="talk.copied">Email copiado</span></span></button>
+          <span class="visually-hidden cta-status" role="status"></span>
+          <a class="contact-mail" href="mailto:giulianogiovanola@gmail.com">giulianogiovanola@gmail.com</a>
+        </div>
       </div>
     </section>
     <footer class="end-foot">
-      <span>Giuliano Giovanola © 2026 · UX/UI &amp; Product Designer</span>
-      <span data-i18n="footer.location">Argentina · Disponible para trabajo remoto</span>
+      <nav class="foot-nav" aria-label="Pie de página" data-i18n-aria="footer.nav">
+        <a href="../index.html#sobre-mi" data-i18n="footer.profile">Perfil</a>
+        <a href="../index.html#trabajo" data-i18n="footer.work">Trabajo</a>
+        <a href="https://www.linkedin.com/in/giulianogiovanola" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="../assets/documents/cv-giuliano-giovanola.pdf" download>CV</a>
+      </nav>
+      <div class="foot-meta">
+        <span>© 2026 Giuliano Giovanola · UX/UI &amp; Product Designer</span>
+        <span data-i18n="footer.location">Argentina (UTC−3)</span>
+      </div>
     </footer>
   </div>
 </div>
+<div class="talk">
+  <a class="talk-link" href="#contacto"><img class="talk-avatar" src="../assets/images/foto-perfil-128.jpg?v=5" width="44" height="44" alt=""><span data-i18n="talk">Hablemos</span></a>
+  <button type="button" class="talk-copy" data-copy="giulianogiovanola@gmail.com" aria-label="Copiar email" data-i18n-aria="contact.copy.aria">
+    <svg class="talk-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+    <svg class="talk-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+    <span class="talk-tip" aria-hidden="true"><span class="tip-idle" data-i18n="contact.copy.aria">Copiar email</span><span class="tip-done" data-i18n="talk.copied">Email copiado</span></span>
+  </button>
+  <span class="visually-hidden talk-status" role="status"></span>
+</div>
 <a class="to-top" href="#" aria-label="Volver arriba" data-i18n-aria="contact.top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg></a>
 <script src="../js/i18n-ternium.js"></script>
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=12"></script>
 </body>
 </html>

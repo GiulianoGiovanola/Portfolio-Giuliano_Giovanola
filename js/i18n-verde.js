@@ -5,7 +5,6 @@ window.I18N_EXTRA = {
   'meta.description': 'Verde Energy Group: UX/UI case study of the redesign of a solar energy corporate website. By Giuliano Giovanola.',
   'case.back': 'All projects',
   'case.next': 'Next case',
-  'case.contact.k': 'Contact',
 
   'v.eyebrow': 'Case 03 · Corporate website · UX/UI',
   'v.lead': 'A full redesign of the website for an Irish solar energy and energy efficiency company serving commercial and industrial businesses.',
@@ -49,11 +48,11 @@ window.I18N_EXTRA = {
   'v.dc1.gave': 'Variety between pages.',
   'v.dc1.got': 'Visitors always have a next step, and development reuses the same pieces.',
   'v.dc2.t': 'A step-by-step form, with contact details last',
-  'v.dc2.p': 'Instead of a long form, simple step-by-step questions about energy spend, operating hours, technology and timing. Contact details are asked for at the end.',
+  'v.dc2.p': 'I set up simple step-by-step questions about energy spend, operating hours, technology and timing, with contact details at the end, instead of one long form.',
   'v.dc2.gave': 'More steps before sending the request.',
   'v.dc2.got': 'Requests that arrive with each company’s context, and options that are easy to answer.',
   'v.dc3.t': 'Horizontal scroll for the six steps',
-  'v.dc3.p': 'Instead of a vertical list, “How Fully Funded Works” moves sideways, one step at a time, as the visitor scrolls down.',
+  'v.dc3.p': '“How Fully Funded Works” moves sideways, one step at a time, as the visitor scrolls down, instead of showing the steps in a vertical list.',
   'v.dc3.gave': 'A section that was harder to build and needed a prototype and animation to explain it.',
   'v.dc3.got': 'A long process that reads like a journey.',
 
@@ -97,4 +96,5 @@ window.I18N_EXTRA = {
   'v.s5.k': '05 / Outcome',
   'v.s5.t': 'From prototype to live site',
   'v.s5.p': 'The client’s development team built the site from the screens, the prototype and the animations, and it is live today at',
+  'v.learn': 'Modernizing a site is not just a visual matter. Organizing the information and giving every page a next step mattered as much as the looks.',
 };

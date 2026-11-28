@@ -5,7 +5,6 @@ window.I18N_EXTRA = {
   'meta.description': 'Excellent Facets: UX/UI case study of the website redesign for a diamond supplier serving luxury maisons, in English and French. By Giuliano Giovanola.',
   'case.back': 'All projects',
   'case.next': 'Next case',
-  'case.contact.k': 'Contact',
 
   'f.eyebrow': 'Case 04 · Corporate website · UX/UI',
   'f.lead': 'Website redesign for a diamond supplier serving luxury jewelry and watch maisons, in English and French.',
@@ -51,7 +50,7 @@ window.I18N_EXTRA = {
   'f.s3.7': 'for the development team, and client reviews at every stage.',
 
   'f.dc1.t': 'Every screen in English and French',
-  'f.dc1.p': 'Instead of designing in English and translating later, I designed both versions of every screen.',
+  'f.dc1.p': 'I designed both versions of every screen, instead of designing in English and translating later.',
   'f.dc1.gave': 'Twice as many screens to design and review.',
   'f.dc1.got': 'Screens that work in both languages, even though French takes up more space.',
   'f.dc2.t': 'Commitment on the same level as the diamonds',
@@ -59,7 +58,7 @@ window.I18N_EXTRA = {
   'f.dc2.gave': 'Space on the home page that could have gone to the product.',
   'f.dc2.got': 'A message of trust that goes hand in hand with quality from the start.',
   'f.dc3.t': 'Plenty of space, with the diamond as the hero',
-  'f.dc3.p': 'Instead of showing a lot of content per screen, I left plenty of space between elements and used dark, close-up photography.',
+  'f.dc3.p': 'I left plenty of space between elements and used dark, close-up photography, instead of showing a lot of content per screen.',
   'f.dc3.gave': 'More scrolling to get through the site.',
   'f.dc3.got': 'An unhurried read, worthy of a luxury brand.',
 
@@ -84,4 +83,5 @@ window.I18N_EXTRA = {
   'f.s5.t': 'From prototype to live site, in two languages',
   'f.s5.p1': 'The client’s development team built the redesign from the screens, the prototype and the animations. It is live today at',
   'f.s5.p2': ', in English and French.',
+  'f.learn': 'Designing in two languages from the start avoids surprises. Seeing every screen in French revealed space issues that never showed up in English.',
 };

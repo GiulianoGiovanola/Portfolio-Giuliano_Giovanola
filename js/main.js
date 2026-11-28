@@ -4,7 +4,6 @@
 const EN = {
   'meta.description': 'Portfolio of Giuliano Giovanola, UX/UI and Product Designer.',
   'skip': 'Skip to content',
-  'cv': 'Download CV (PDF)',
   'cv.nav': 'Download CV',
   'lang.group': 'Language',
   'theme.dark': 'Dark mode',
@@ -27,7 +26,6 @@ const EN = {
 
   'work.kicker': '02 / Work',
   'work.title': 'Some of the projects I have worked on.',
-  'work.intro': 'Four client projects across different industries, with their process in detail.',
 
   'studies.role': 'Role',
   'studies.focus': 'Focus',
@@ -37,6 +35,11 @@ const EN = {
   'studies.type.conv': 'Conversational design',
   'studies.ternium.alt': 'Diagram: operators, supervisors, administrative staff and logistics connected to platforms sharing one design system, on web and mobile, with 3D visualization',
   'studies.ternium.note': 'Under a confidentiality agreement: the case shows the process without product screens.',
+  'studies.ternium.title': 'From spreadsheets to role-based platforms.',
+  'studies.ypf.title': 'From phone calls to a guided chat.',
+  'studies.verde.title': 'Solar energy, told clearly.',
+  'studies.facets.title': 'More than diamonds: trust.',
+  'case.learn.k': '06 / What I learned',
   'studies.ternium.desc': 'Fleet management and logistics platforms and plant dashboards for operators, supervisors, administrative staff and logistics teams, with responsive versions and mobile apps.',
   'studies.ternium.role': 'UX/UI Designer, product-focused',
   'studies.ternium.focus': 'Replacing spreadsheets and informal communication with digital flows designed for real conditions on the plant floor.',
@@ -61,16 +64,22 @@ const EN = {
   'case.real': 'The real problem',
   'case.dc.sub': 'Key decisions',
   'case.dc.k': 'Decision',
-  'case.dc.gave': 'Gave up',
-  'case.dc.got': 'Gained',
+  'case.dc.gave': 'At the cost of',
+  'case.dc.got': 'Result',
 
-  'contact.kicker': '03 / Contact',
-  'contact.title': 'Let’s build clear digital products together.',
-  'contact.text': 'If your team needs to simplify complex processes, let’s talk.',
+  'contact.t1': 'Let’s make the complex',
+  'contact.t2': 'simple.',
+  'contact.avail': 'Available for remote work',
+  'contact.cta': 'Let’s talk',
+  'contact.cta.aria': 'Let’s talk: copy email',
+  'footer.nav': 'Footer',
+  'footer.profile': 'Profile',
+  'footer.work': 'Work',
   'contact.top': 'Back to top',
-  'contact.copy': 'Copy',
   'contact.copy.aria': 'Copy email',
-  'footer.location': 'Argentina · Open to remote work',
+  'talk': 'Let’s talk',
+  'talk.copied': 'Email copied',
+  'footer.location': 'Argentina (UTC−3)',
 };
 
 // Cada caso de estudio suma sus propias traducciones (por ejemplo, js/i18n-ternium.js)
@@ -149,6 +158,9 @@ function setTheme(theme) {
   if (dark) root.setAttribute('data-theme', 'dark');
   else root.removeAttribute('data-theme');
   document.querySelector('.theme-btn').setAttribute('aria-pressed', String(dark));
+  // El ícono de la pestaña sigue el modo del sitio
+  const fav = document.querySelector('link[rel="icon"]');
+  if (fav) fav.href = dark ? fav.dataset.dark : fav.dataset.light;
   updateImages();
   store('theme', dark ? 'dark' : 'light');
 }
@@ -186,22 +198,28 @@ document.querySelectorAll('[data-set-lang]').forEach(btn => {
 document.querySelector('.theme-btn').addEventListener('click', switchTheme);
 
 // Barra superior: sombra cuando la página se desplaza.
-// Botón "volver arriba": aparece cuando el centro de la pantalla llega a la mitad
-// de la primera sección después del hero (Perfil en el inicio, "El desafío" en los casos),
-// y cambia de colores cuando pasa sobre el cierre oscuro.
+// Botón "volver arriba" y píldora "Hablemos": aparecen cuando la mitad de la primera
+// sección después del hero (Perfil en el inicio, Introducción en los casos) entra por
+// el borde de abajo de la pantalla. El botón cambia de colores sobre el cierre oscuro.
 const header = document.querySelector('.site-header');
 const toTop = document.querySelector('.to-top');
 const endBand = document.querySelector('.end-band');
 const firstSection = document.querySelector('#sobre-mi, .case-sec');
+const talk = document.querySelector('.talk');
 const onScroll = () => {
   header.classList.toggle('scrolled', window.scrollY > 8);
   if (!toTop) return;
   let show = window.scrollY > window.innerHeight;
   if (firstSection) {
     const r = firstSection.getBoundingClientRect();
-    show = r.top + r.height / 2 <= window.innerHeight / 2;
+    show = r.top + r.height / 2 <= window.innerHeight;
   }
   toTop.classList.toggle('show', show);
+  if (talk) {
+    // Cuando el contacto ya se ve en pantalla, la píldora sobra
+    const contactInView = endBand && endBand.getBoundingClientRect().top < window.innerHeight * 0.85;
+    talk.classList.toggle('show', show && !contactInView);
+  }
   if (endBand) {
     const btnCenter = toTop.getBoundingClientRect().top + toTop.offsetHeight / 2;
     toTop.classList.toggle('on-dark', endBand.getBoundingClientRect().top < btnCenter);
@@ -242,17 +260,21 @@ function copyText(text) {
   });
 }
 
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  const label = btn.querySelector('.copy-label');
-  let resetTimer;
+// Botones que copian el email: el sobre de la píldora flotante y "Hablemos" del cierre.
+// Durante 2 segundos muestran "Email copiado" y lo anuncian a los lectores de pantalla.
+[['.talk-copy', '.talk-status'], ['.cta-btn', '.cta-status']].forEach(([btnSel, statusSel]) => {
+  const btn = document.querySelector(btnSel);
+  if (!btn) return;
+  const status = document.querySelector(statusSel);
+  let timer;
   btn.addEventListener('click', () => {
     copyText(btn.dataset.copy).then(() => {
-      clearTimeout(resetTimer);
+      clearTimeout(timer);
       btn.classList.add('copied');
-      label.textContent = root.lang === 'en' ? 'Copied' : 'Copiado';
-      resetTimer = setTimeout(() => {
+      status.textContent = root.lang === 'en' ? EN['talk.copied'] : 'Email copiado';
+      timer = setTimeout(() => {
         btn.classList.remove('copied');
-        label.textContent = root.lang === 'en' ? EN['contact.copy'] : label.dataset.es;
+        status.textContent = '';
       }, 2000);
     }).catch(() => { });
   });

@@ -132,11 +132,43 @@ a:focus-visible {
 }
 
 .topbar .id {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-mono);
   font-size: 13px;
   text-decoration: none;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+
+/* Logo: versión oscura en modo claro y versión clara en modo oscuro */
+.id-logo {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+
+.id-logo-dark,
+:root[data-theme="dark"] .id-logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .id-logo-dark {
+  display: block;
+}
+
+/* En celulares angostos no entran el nombre y los controles: queda solo el logo */
+@media (max-width: 440px) {
+  .topbar .id span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 }
 
 .topbar .links {
@@ -164,16 +196,12 @@ a:focus-visible {
    principal para mantener el contraste (14:1 en claro y 12:1 en oscuro). */
 .pill,
 .theme-btn,
-.lang button,
-.ghost-btn,
-.copy-btn {
+.lang button {
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .pill:hover,
-.theme-btn:hover,
-.ghost-btn:hover,
-.copy-btn:hover {
+.theme-btn:hover {
   background: var(--gold-soft);
   border-color: var(--accent);
   color: var(--fg);
@@ -498,26 +526,25 @@ main section:first-child {
   clip-path: inset(0 -100vmax);
 }
 
+/* Encabezado de "Trabajo": rótulo chico y título grande, centrados */
 .cases-head {
-  max-width: 640px;
-  margin-bottom: 48px;
+  max-width: 980px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.cases-head .kicker {
+  margin-bottom: 20px;
 }
 
 .cases-head h2 {
-  margin: 0 0 20px;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: clamp(36px, 6vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   text-wrap: balance;
-}
-
-.cases-head p:not(.kicker) {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--muted);
 }
 
 /* Lista con guion dorado (se usa en las páginas de caso) */
@@ -601,13 +628,19 @@ main section:first-child {
   color: var(--accent);
 }
 
+/* Título de cada caso: el resultado en una frase (el cliente va en la línea de arriba) */
 .study h3 {
   margin: 0 0 20px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(30px, 3.4vw, 44px);
-  line-height: 1.1;
+  font-size: clamp(26px, 2.6vw, 36px);
+  /* Puede usar 40px del espacio entre texto e imagen (son 72px): así un título que
+     entra justo en una línea no pasa a dos por unos pocos píxeles */
+  margin-right: -40px;
+  line-height: 1.18;
   letter-spacing: -0.02em;
+  /* "pretty" llena cada línea y solo evita que la última quede con una palabra sola */
+  text-wrap: pretty;
 }
 
 .study-desc {
@@ -697,6 +730,11 @@ main section:first-child {
 
   .study:nth-of-type(even) .study-media {
     order: 0;
+  }
+
+  /* En una sola columna no hay espacio extra hacia la imagen */
+  .study h3 {
+    margin-right: 0;
   }
 
   .study+.study {
@@ -999,6 +1037,37 @@ main section:first-child {
   font-size: 15px;
   line-height: 1.65;
   color: var(--muted);
+}
+
+/* "Qué aprendí": reflexión final del caso, en formato de cita */
+.case-learn {
+  margin: 0;
+}
+
+.case-learn blockquote {
+  margin: 0;
+  padding-left: 28px;
+  border-left: 2px solid var(--accent);
+}
+
+.case-learn blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  text-wrap: pretty;
+}
+
+.case-learn figcaption {
+  margin-top: 20px;
+  padding-left: 30px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--faint);
 }
 
 /* Lo que se pidió → el problema real */
@@ -1707,80 +1776,133 @@ main section:first-child {
   padding-block: 112px 72px;
 }
 
-.contact h2 {
-  margin: 0 0 24px;
-  max-width: 14em;
+/* Título grande a la izquierda, botón y email a la derecha */
+.contact-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 48px 64px;
+  margin-top: 8px;
+}
+
+.contact-big {
+  margin: 0 0 36px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(30px, 3.4vw, 44px);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  /* Tamaño pensado para que la frase entre en dos líneas en desktop */
+  font-size: clamp(40px, 5.2vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: var(--fg);
   text-wrap: balance;
 }
 
-.contact-sub {
-  margin: 0 0 48px;
-  font-size: clamp(16px, 1.3vw, 18px);
-  color: var(--muted);
-  text-wrap: pretty;
+/* Palabra destacada con una línea ondulada dorada debajo */
+.wavy {
+  color: var(--accent);
+  padding-bottom: 0.12em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10' viewBox='0 0 24 10'%3E%3Cpath d='M0 5 Q6 0 12 5 T24 5' fill='none' stroke='%23C9A25E' stroke-width='2.2'/%3E%3C/svg%3E") repeat-x left bottom / 0.24em 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Disponibilidad: etiqueta con punto verde */
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 15px;
+  color: var(--fg);
+}
+
+.avail-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: #3FB950;
+  box-shadow: 0 0 0 4px rgba(63, 185, 80, 0.18);
+}
+
+.contact-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #EFE7D6;
+  color: #191917;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: background-color 0.25s ease;
+}
+
+.cta-arrow {
+  transition: transform 0.25s ease;
+}
+
+.cta-btn:hover,
+.cta-btn.copied {
+  background: var(--accent);
+}
+
+.cta-btn:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Al copiar, "Hablemos →" se reemplaza por un tilde y "Email copiado" */
+.cta-done {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta-done svg {
+  width: 16px;
+  height: 16px;
+}
+
+.cta-btn.copied .cta-label,
+.cta-btn.copied .cta-arrow {
+  display: none;
+}
+
+.cta-btn.copied .cta-done {
+  display: inline-flex;
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .contact-mail {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  max-width: 100%;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--line);
   text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(20px, 2.2vw, 30px);
-  letter-spacing: -0.01em;
-  position: relative;
-  transition: color 0.25s ease;
-}
-
-/* Línea dorada que se "carga" de izquierda a derecha sobre la línea gris */
-.contact-mail::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.contact-mail:hover::after,
-.contact-mail:focus-visible::after {
-  transform: scaleX(1);
-}
-
-.contact-mail span {
+  font-size: 15px;
+  color: var(--fg);
   overflow-wrap: anywhere;
-}
-
-.contact-mail svg {
-  width: 20px;
-  height: 20px;
-  flex: none;
-  color: currentColor;
+  transition: color 0.25s ease;
 }
 
 .contact-mail:hover,
 .contact-mail:focus-visible {
   color: var(--accent);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-mail::after {
-    transition: none;
-  }
 }
 
 /* Botón flotante para volver arriba: aparece después de bajar un poco */
@@ -1850,97 +1972,207 @@ main section:first-child {
   }
 }
 
-/* Email + botón para copiarlo */
-.mail-row {
+/* Píldora flotante "Hablemos": baja al contacto y copia el email.
+   Aparece junto con "volver arriba" y se oculta cuando el contacto ya está a la vista */
+.talk {
+  position: fixed;
+  left: 50%;
+  bottom: max(32px, env(safe-area-inset-bottom, 0px));
+  z-index: 20;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px 20px;
-}
-
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  /* Compensa el espacio y la línea debajo del email (18px + 1px)
-     para que el botón quede centrado con el texto y no con todo el bloque */
-  margin-bottom: 16px;
-  padding: 9px 16px;
-  border: 1px solid var(--line);
+  gap: 6px;
+  padding: 6px;
   border-radius: 999px;
-  background: transparent;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--fg);
-  cursor: pointer;
+  background: var(--ink);
+  color: var(--on-ink);
+  box-shadow: 0 10px 30px rgba(26, 26, 24, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-.copy-btn svg {
-  width: 15px;
-  height: 15px;
+.talk.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.talk-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 14px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.talk-avatar {
+  display: block;
   flex: none;
-  color: var(--accent);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--gold-soft);
 }
 
-.copy-btn .icon-check {
+.talk-copy {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.22);
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.talk-copy svg {
+  width: 20px;
+  height: 20px;
+}
+
+.talk-icon-check,
+.talk-copy.copied .talk-icon-mail {
   display: none;
 }
 
-.copy-btn.copied {
-  border-color: var(--accent);
-}
-
-.copy-btn.copied .icon-copy {
-  display: none;
-}
-
-.copy-btn.copied .icon-check {
+.talk-copy.copied .talk-icon-check {
   display: block;
 }
 
-.copy-btn:focus-visible {
+.talk-copy:hover,
+.talk-copy.copied {
+  background: var(--accent);
+  color: var(--on-ink);
+}
+
+.talk-link:focus-visible,
+.talk-copy:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 48px;
+/* Cartel sobre el botón: "Copiar email" al pasar el mouse, "Email copiado" al hacer clic */
+.talk-tip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(26, 26, 24, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
 }
 
-.ghost-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--fg);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+.tip-done,
+.talk-copy.copied .tip-idle {
+  display: none;
 }
 
-.ghost-btn svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
-  color: var(--accent);
+.talk-copy.copied .tip-done {
+  display: inline;
 }
 
+.talk-copy.copied .talk-tip,
+.talk-copy:focus-visible .talk-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+@media (hover: hover) {
+  .talk-copy:hover .talk-tip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .talk {
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .talk-link {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .talk,
+  .talk-tip {
+    transition: none;
+  }
+}
+
+/* Pie: links a la izquierda, firma y ubicación a la derecha */
 .end-foot {
   display: flex;
   justify-content: space-between;
-  gap: 12px 24px;
+  align-items: center;
+  gap: 20px 32px;
   flex-wrap: wrap;
-  padding-block: 36px 56px;
+  /* Abajo deja lugar para el botón flotante de "volver arriba" (32px + 56px) */
+  padding-block: 36px 112px;
   border-top: 1px solid var(--line);
-  font-family: var(--font-mono);
-  font-size: 12px;
+}
+
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+
+.foot-nav a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--fg);
+  transition: color 0.25s ease;
+}
+
+.foot-nav a:hover,
+.foot-nav a:focus-visible {
+  color: var(--accent);
+}
+
+.foot-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 14px;
   color: var(--muted);
+  text-align: right;
 }
 
 /* Perfil */
@@ -2026,10 +2258,6 @@ main section:first-child {
 }
 
 @media (max-width: 720px) {
-  .idrole {
-    display: none;
-  }
-
   .topbar {
     gap: 12px;
   }
@@ -2100,38 +2328,33 @@ main section:first-child {
     padding-block: 64px 48px;
   }
 
-  .contact-sub {
-    margin-bottom: 40px;
+  .contact-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
   }
 
-  .contact-mail {
-    gap: 12px;
+  .contact-big {
+    margin-bottom: 28px;
   }
 
-  /* En el celular el botón "Copiar" pasa debajo del email: no hace falta compensar la línea */
-  .copy-btn {
-    margin-bottom: 0;
+  .avail {
+    font-size: 14px;
   }
 
-  .contact-mail svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .contact-actions {
-    margin-top: 36px;
-    gap: 12px;
-  }
-
-  .ghost-btn {
-    padding: 12px 18px;
-    font-size: 13px;
+  .contact-cta {
+    align-items: flex-start;
   }
 
   /* Espacio abajo para que el botón flotante de "volver arriba" no tape el pie */
   .end-foot {
     flex-direction: column;
+    align-items: flex-start;
     padding-block: 28px 88px;
+  }
+
+  .foot-meta {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 

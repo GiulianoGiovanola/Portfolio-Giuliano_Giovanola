@@ -5,7 +5,6 @@ window.I18N_EXTRA = {
   'meta.description': 'YPF Ruta: conversational design case study of a WhatsApp chatbot for drivers. By Giuliano Giovanola.',
   'case.back': 'All projects',
   'case.next': 'Next case',
-  'case.contact.k': 'Contact',
 
   'y.eyebrow': 'Case 02 · Conversational design · WhatsApp',
   'y.lead': 'A WhatsApp assistant for drivers to log their trips and check their vehicle, documents and risk before heading out on the road.',
@@ -59,11 +58,11 @@ window.I18N_EXTRA = {
   'y.s3.c6.p': 'Drivers can start over by typing “reset”. If they are missing documents, they can put the process on hold and pick it up later.',
 
   'y.dc1.t': 'Show the data instead of asking for it',
-  'y.dc1.p': 'Instead of asking drivers for all their details on every trip, the bot looks them up in the databases and shows them for confirmation.',
+  'y.dc1.p': 'The bot looks up the driver’s details in the databases and shows them for confirmation, instead of asking for them on every trip.',
   'y.dc1.gave': 'More reliance on the databases being up to date, and extra paths for when they were not.',
   'y.dc1.got': 'Less typing and fewer typos on every trip.',
   'y.dc2.t': 'One answer format for each question',
-  'y.dc2.p': 'Instead of accepting free text across the whole chat, I used buttons for closed decisions and numbered options for long lists.',
+  'y.dc2.p': 'I used buttons for closed decisions and numbered options for long lists, instead of accepting free text across the whole chat.',
   'y.dc2.gave': 'The freedom for drivers to answer in their own words.',
   'y.dc2.got': 'Answers the bot understands the first time, without interpreting ambiguous messages.',
   'y.dc3.t': 'A process that can be paused',
@@ -96,4 +95,5 @@ window.I18N_EXTRA = {
   'y.s5.p1': 'The conversations were tested with drivers. The conversational design was evaluated on one side, and QA validated how it worked on the other. The findings from those tests led to refinements, and the assistant was rolled out.',
   'y.s5.p2': 'Trip logging no longer depends on a phone call: drivers complete it in a guided WhatsApp flow, and the data is stored in the system’s databases.',
   'y.s5.p3': 'The assistant runs on Meta’s WhatsApp API and uses Google Maps to calculate routes.',
+  'y.learn': 'In a chat, every error needs a way out. Designing the alternative paths took longer than the ideal path, and it was what made the assistant work.',
 };
